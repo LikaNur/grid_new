@@ -1,0 +1,138 @@
+:root {
+    --main-color: #F8F8F8;
+    --primary-color: #EA5E32;
+    --secondary-color: #F7B432;
+    --tertiary-color: #FBD36D;
+    --quaternary-color: #A82F1E;
+    --font-color: #fff;
+    --font-family: Roboto;
+    --letter-spacing: 0.64;
+}
+
+* {
+    margin: 0;
+}  
+
+html, 
+body {
+    background-color: var(--main-color);
+    font-family: var(--font-family);
+    letter-spacing: var(--letter-spacing);
+    height: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: 13.375em 6.8125em 1fr 6.8125em 13.375em;
+    height: 100%;
+}
+
+.header,
+.footer {
+    color: var(--font-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    background-color: var(--primary-color);
+}
+
+.navigation {
+    background-color: var(--secondary-color);
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    padding: 0.5em 2.2em;
+}
+
+.content h2 {
+    padding: 1.4em 2.2em 0.6em;
+} 
+
+.sidebar {
+    background-color: var(--tertiary-color);
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    padding: 0.5em 2.2em;
+}
+
+.footer {
+    background-color: var(--quaternary-color);
+}
+
+h2 { 
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 181.8%;
+}
+
+p {
+    font-size: 1.5em;
+    line-height: 145.8%;
+    padding: 0 3em 4em 3em;
+}
+
+@media all and (min-width: 1020px) {
+    .grid {
+        grid-template-rows: 12.37em  1fr 12.37em;
+        grid-template-columns: 20.6875em minmax(18.75em, auto) 20.6875em;
+        grid-template-areas: 
+            "header header header" 
+            "navigation content sidebar"
+            "footer footer footer";
+        gap: 1.2em;
+    }
+    
+     .header,
+     .footer,
+     .navigation,
+     .sidebar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header {
+        grid-area: header;
+    }
+    
+    .navigation,
+    .sidebar {
+        border-radius: 0; 
+        text-align: center;
+    }
+
+    .navigation {
+        grid-area: navigation;
+        border-top-right-radius: 0.6em;
+        border-bottom-right-radius: 0.6em;
+    }
+
+    .content {
+        grid-area: content;
+    } 
+
+    .content h2 {
+       padding-left: 1.7em;
+    } 
+
+    .sidebar {
+        grid-area: sidebar;
+        border-top-left-radius: 0.6em;
+        border-bottom-left-radius: 0.6em;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+
+    h2 { 
+        font-size: 2.2rem;
+    }
+    
+    p {
+        line-height: 148.8%;
+        padding: 0 2em 3em 3em;
+    }
+}
